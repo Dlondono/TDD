@@ -1,17 +1,14 @@
 <div class="row parent" style="text-align:center;">
     <form class="example-form">
         <mat-form-field class="example-full-width">
-            <mat-label>Numero arábigo</mat-label>
-            <input id="numero" name="numero" [(ngModel)]="numero" matInput placeholder="Ej. 122" (ngModelChange)="calcular()">
+            <mat-label style="font-size: large;">Ingrese un numero arábico menor a 1000</mat-label>
+            <input id="numero" name="numero" [(ngModel)]="numero" matInput placeholder="Ej. 15" (ngModelChange)="calcular()">
         </mat-form-field>
-       
     </form>
-    
 </div>
 <p></p>
 <div class="row parent" style="text-align:center;">
     <form class="example-form">
-        <label [ngClass]="error? 'alert-sucess' : 'alert-danger'" class=""  role="alert" >{{respuesta}}</label>
-    </form>
-    
+        <label style="font-size: large;">{{respuesta}}</label>
+    </form>    
 </div>

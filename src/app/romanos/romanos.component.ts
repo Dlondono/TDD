@@ -10,26 +10,31 @@ import { RomanNumerals } from '../services/romanNumerals.service';
 export class RomanosComponent implements OnInit {
 
   constructor(private servicioRomano: RomanNumerals) { }
-  respuesta = "Ingrese un numero arábigo"
+  respuesta = ""
   numero = ""
   error = false
   ngOnInit(): void {
   }
   calcular() {
+    
     if (this.numero.match("[a-zA-Z]+")) {
-      this.respuesta = "Ingrese un numero arábigo, sin letras"
-      this.error = false;
-    }
-    else if (this.numero.match(".*\\s.*")) {
-      this.respuesta = "Ingrese el numero sin espacios"
+      this.respuesta = "No puede contener letras"
       this.error = false;
     }
     else if (this.numero == "") {
-      this.respuesta = "Ingrese un numero arábigo"
+      this.respuesta = ""
       this.error = false;
     }
+    else if (this.numero.match(".*\\s.*")) {
+      this.respuesta = "No puede contener espacios"
+      this.error = false;
+    }
+    else if(this.numero=="0"){
+      this.respuesta="El 0 no existe"
+      this.error=false;
+    }
     else if (this.numero.length > 4 || parseInt(this.numero) > 1000) {
-      this.respuesta = "Debe ser menor a 4 digitos y menor que 1001"
+      this.respuesta = "Debe ser menor menor que 1000"
       this.error = false;
     }
     else {
